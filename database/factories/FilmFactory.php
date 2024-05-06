@@ -21,21 +21,21 @@ class FilmFactory extends Factory
                 'title' => 'Звёздные войны XXIII: Атака клонированных клонов',
                 'description' => 'Две сотни лет назад малороссийские хутор',
                 'movie_duration' => 130,
-                'image' => 'http://localhost:8000/images/511eb6fb02565ba0374ddb3ad501d299.jpeg',
+                'image' => 'img/511eb6fb02565ba0374ddb3ad501d299.jpeg',
                 'country_of_origin' => 'США'
             ],
             [
                 'title' => 'Альфа',
                 'description' => '20 тысяч лет назад Земля была холодным и неуютным местом, в котором смерть подстерегала человека на каждом шагу.',
                 'movie_duration' => 96,
-                'image' => 'http://localhost:8000/images/3df77a6fe04a8f4253879b3478b0776a.jpeg',
+                'image' => 'img/3df77a6fe04a8f4253879b3478b0776a.jpeg',
                 'country_of_origin' => 'Франция'
             ],
             [
                 'title' => 'Хищник',
                 'description' => 'Самые опасные хищники Вселенной, прибыв из глубин космоса, высаживаются на улицах маленького городка, чтобы начать свою кровавую охоту. Генетически модернизировав себя с помощью ДНК других видов, охотники стали ещё сильнее, умнее и беспощаднее.',
                 'movie_duration' => 101,
-                'image' => 'http://localhost:8000/images/511eb6fb02565ba0374ddb3ad501d299.jpeg',
+                'image' => 'img/511eb6fb02565ba0374ddb3ad501d299.jpeg',
                 'country_of_origin' => 'Канада, США'
             ]
         ];

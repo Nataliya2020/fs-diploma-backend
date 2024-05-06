@@ -7,6 +7,7 @@ use App\Http\Requests\FilmRequest;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Storage;
 
 class FilmController extends Controller
 {
@@ -15,7 +16,20 @@ class FilmController extends Controller
      */
     public function index()
     {
-        return Film::all();
+        $allFilms = Film::all();
+        $films = [];
+
+        foreach ($allFilms as $film) {
+            if($film['image'] === 'img/3df77a6fe04a8f4253879b3478b0776a.jpeg' || $film['image'] === 'img/511eb6fb02565ba0374ddb3ad501d299.jpeg') {
+                $film['image'] = config('imgUrl.imgUrl') . '/' . $film['image'];
+                $films[] = $film;
+            } else {
+                $film['image'] = (!empty($film['image'])) ? config('imgUrl.imgUrl') . '/storage/' . $film['image'] : '';
+                $films[] = $film;
+            }
+        }
+
+        return $films;
     }
 
     /**
@@ -30,8 +44,9 @@ class FilmController extends Controller
         $image = str_replace(' ', '+', $image);
         $destinationPath = 'images/';
         $name = md5($image64 . strtotime("now")) . '.' . $extension;
-        file_put_contents($destinationPath . $name, base64_decode($image));
-        $imageUrl = 'http://localhost:8000/images/' . $name;
+
+        Storage::disk('public')->put($destinationPath.$name, base64_decode($image));
+        $imageUrl = 'images/'.$name;
         $data = $request->validated();
         $data['image'] = $imageUrl;
 
@@ -66,10 +81,10 @@ class FilmController extends Controller
 
         if ($film->delete()) {
             foreach ($imgs as $img) {
-                $imgEdit = str_replace('http://localhost:8000/', '', $img);
-                Unlink($imgEdit);
+                if(!str_contains($img, 'img')) {
+                    Storage::disk('public')->delete($img);
+                }
             }
-
             return response("film deleted", 200);
         }
 

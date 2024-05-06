@@ -25,6 +25,6 @@ class dev extends Command
      */
     public function handle(): void
     {
-       // phpinfo();
+        // the method for checking the code
     }
 }

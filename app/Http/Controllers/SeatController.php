@@ -35,7 +35,8 @@ class SeatController extends Controller
         $quantityHallsAndSeatsNotBlocked['quantityHalls'] = count($halls);
         $quantityHallsAndSeatsNotBlocked['quantitySeats'] = $totalQuantitySeatsNotBlocked;
 
-        return json_encode($quantityHallsAndSeatsNotBlocked, JSON_UNESCAPED_UNICODE);
+        return response()->json($quantityHallsAndSeatsNotBlocked);
+       // return json_encode($quantityHallsAndSeatsNotBlocked, JSON_UNESCAPED_UNICODE);
     }
 
     /**

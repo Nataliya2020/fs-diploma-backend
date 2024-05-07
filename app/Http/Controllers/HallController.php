@@ -41,8 +41,8 @@ class HallController extends Controller
 
             $sessionsForHalls[] = $arrayHall;
         }
-
-        return json_encode($sessionsForHalls, JSON_UNESCAPED_UNICODE);
+        return response()->json($sessionsForHalls);
+        //return json_encode($sessionsForHalls, JSON_UNESCAPED_UNICODE);
     }
 
     /**

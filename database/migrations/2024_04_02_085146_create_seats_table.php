@@ -19,7 +19,11 @@ return new class extends Migration {
             $table->timestamps();
 
             $table->index('hall_id', 'seat_hall_idx');
-            $table->foreign('hall_id', 'seat_hall_fk')->on('halls')->references('id')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('hall_id', 'seat_hall_fk')
+                ->on('halls')
+                ->references('id')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 

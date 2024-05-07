@@ -49,9 +49,16 @@ class AppHelper
         $is_active = array_column(Hall::factory()->raw(), 'is_active');
         $is_active = json_decode(json_encode($is_active), true);
 
-        return ['name' => $name, 'rows' => $rows, 'chairs_in_row' => $chairs_in_row, 'total_chairs' => $total_chairs,
-            'blocked_chairs' => $blocked_chairs, 'price_standart_chair' => $price_standart_chair,
-            'price_vip_chair' => $price_vip_chair, 'is_active' => $is_active];
+        return [
+            'name' => $name,
+            'rows' => $rows,
+            'chairs_in_row' => $chairs_in_row,
+            'total_chairs' => $total_chairs,
+            'blocked_chairs' => $blocked_chairs,
+            'price_standart_chair' => $price_standart_chair,
+            'price_vip_chair' => $price_vip_chair,
+            'is_active' => $is_active
+        ];
     }
 
     public function getFilmData(): array
@@ -67,7 +74,13 @@ class AppHelper
         $country_of_origin = array_column(Film::factory()->raw(), 'country_of_origin');
         $country_of_origin = json_decode(json_encode($country_of_origin), true);
 
-        return ['titles' => $titles, 'description' => $description, 'movie_duration' => $movie_duration, 'image' => $image, 'country_of_origin' => $country_of_origin];
+        return [
+            'titles' => $titles,
+            'description' => $description,
+            'movie_duration' => $movie_duration,
+            'image' => $image,
+            'country_of_origin' => $country_of_origin
+        ];
     }
 
     public static function instance()

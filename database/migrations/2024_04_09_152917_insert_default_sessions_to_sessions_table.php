@@ -24,8 +24,10 @@ return new class extends Migration {
             $session_date = array_column(\App\Models\Session::factory()->raw(), 'session_date');
             $session_date = json_decode(json_encode($session_date), true);
 
-            DB::table('sessions')->whereIn('session_start_time', $session_start_time)
-                ->whereIn('session_date', $session_date)->delete();
+            DB::table('sessions')
+                ->whereIn('session_start_time', $session_start_time)
+                ->whereIn('session_date', $session_date)
+                ->delete();
         });
     }
 };

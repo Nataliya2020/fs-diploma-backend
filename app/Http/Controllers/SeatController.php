@@ -104,7 +104,10 @@ class SeatController extends Controller
                 }
 
                 if ($place['seat_number'] !== 0) {
-                    $seatUpdate = Seat::firstOrCreate(['hall_id' => $place['hall_id'], 'seat_number' => $place['seat_number']]);
+                    $seatUpdate = Seat::firstOrCreate([
+                        'hall_id' => $place['hall_id'],
+                        'seat_number' => $place['seat_number']
+                    ]);
 
                     if ($seatUpdate->count() !== 0) {
                         $this->updateSeat($place);
@@ -147,7 +150,10 @@ class SeatController extends Controller
             $result[] = "Проверьте данные места {$request['seat_number']}";
 
         } else {
-            $seatUpdate = Seat::firstOrCreate(['hall_id' => $request['hall_id'], 'seat_number' => $request['seat_number']]);
+            $seatUpdate = Seat::firstOrCreate([
+                'hall_id' => $request['hall_id'],
+                'seat_number' => $request['seat_number']
+            ]);
             if ($seatUpdate !== false) {
                 $seatUpdate->fill($request);
                 $seatUpdate->save();

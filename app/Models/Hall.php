@@ -14,9 +14,14 @@ class Hall extends Model
         'deleted_at'
     ];
     protected $fillable = [
-        'name', 'rows', 'chairs_in_row', 'total_chairs', 'blocked_chairs',
+        'name',
+        'rows',
+        'chairs_in_row',
+        'total_chairs',
+        'blocked_chairs',
         'price_standart_chair',
-        'price_vip_chair', 'is_active'
+        'price_vip_chair',
+        'is_active'
     ];
 
     protected $table = 'halls';

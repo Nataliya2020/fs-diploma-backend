@@ -29,9 +29,13 @@ return new class extends Migration {
         Schema::table('films', function (Blueprint $table) {
             $filmData = AppHelper::instance()->getFilmData();
 
-            DB::table('films')->whereIn('title', $filmData['titles'])->whereIn('description', $filmData['description'])
-                ->whereIn('movie_duration', $filmData['movie_duration'])->whereIn('image', $filmData['image'])
-                ->whereIn('country_of_origin', $filmData['country_of_origin'])->delete();
+            DB::table('films')
+                ->whereIn('title', $filmData['titles'])
+                ->whereIn('description', $filmData['description'])
+                ->whereIn('movie_duration', $filmData['movie_duration'])
+                ->whereIn('image', $filmData['image'])
+                ->whereIn('country_of_origin', $filmData['country_of_origin'])
+                ->delete();
         });
     }
 };

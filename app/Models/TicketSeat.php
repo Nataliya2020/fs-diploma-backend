@@ -15,7 +15,9 @@ class TicketSeat extends Model
     ];
 
     protected $fillable = [
-        'ticket_id', 'row', 'seats_numbers'
+        'ticket_id',
+        'row',
+        'seats_numbers'
     ];
 
     protected $table = 'ticket_seats';

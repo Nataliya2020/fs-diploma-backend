@@ -11,7 +11,11 @@ class Film extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title', 'movie_duration', 'image', 'description', 'country_of_origin'
+        'title',
+        'movie_duration',
+        'image',
+        'description',
+        'country_of_origin'
     ];
 
     protected $table = 'films';

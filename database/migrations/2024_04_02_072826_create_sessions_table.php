@@ -19,9 +19,17 @@ return new class extends Migration {
             $table->string('session_date')->nullable();
 
             $table->index('hall_id', 'session_hall_idx');
-            $table->foreign('hall_id', 'session_hall_fk')->on('halls')->references('id')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('hall_id', 'session_hall_fk')
+                ->on('halls')
+                ->references('id')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->index('film_id', 'session_film_idx');
-            $table->foreign('film_id', 'session_film_fk')->on('films')->references('id')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('film_id', 'session_film_fk')
+                ->on('films')
+                ->references('id')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->timestamps();
         });
     }

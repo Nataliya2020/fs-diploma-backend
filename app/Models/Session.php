@@ -13,7 +13,11 @@ class Session extends Model
     protected $table = 'sessions';
 
     protected $fillable = [
-        'hall_id', 'film_id', 'session_start_time', 'paid_chairs', 'session_date'
+        'hall_id',
+        'film_id',
+        'session_start_time',
+        'paid_chairs',
+        'session_date'
     ];
 
     public function hall(): BelongsTo

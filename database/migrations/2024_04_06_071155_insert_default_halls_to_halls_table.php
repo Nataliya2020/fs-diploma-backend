@@ -29,10 +29,16 @@ return new class extends Migration {
         Schema::table('halls', function (Blueprint $table) {
             $hallData = AppHelper::instance()->getHallData();
 
-            DB::table('halls')->whereIn('name', $hallData['name'])->whereIn('rows', $hallData['rows'])
-                ->whereIn('chairs_in_row', $hallData['chairs_in_row'])->whereIn('total_chairs', $hallData['total_chairs'])
-                ->whereIn('blocked_chairs', $hallData['blocked_chairs'])->whereIn('price_standart_chair', $hallData['price_standart_chair'])
-                ->whereIn('price_vip_chair', $hallData['price_vip_chair'])->whereIn('is_active', $hallData['is_active'])->delete();
+            DB::table('halls')
+                ->whereIn('name', $hallData['name'])
+                ->whereIn('rows', $hallData['rows'])
+                ->whereIn('chairs_in_row', $hallData['chairs_in_row'])
+                ->whereIn('total_chairs', $hallData['total_chairs'])
+                ->whereIn('blocked_chairs', $hallData['blocked_chairs'])
+                ->whereIn('price_standart_chair', $hallData['price_standart_chair'])
+                ->whereIn('price_vip_chair', $hallData['price_vip_chair'])
+                ->whereIn('is_active', $hallData['is_active'])
+                ->delete();
         });
     }
 };

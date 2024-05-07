@@ -20,7 +20,7 @@ class FilmController extends Controller
         $films = [];
 
         foreach ($allFilms as $film) {
-            if($film['image'] === 'img/3df77a6fe04a8f4253879b3478b0776a.jpeg' || $film['image'] === 'img/511eb6fb02565ba0374ddb3ad501d299.jpeg') {
+            if ($film['image'] === 'img/3df77a6fe04a8f4253879b3478b0776a.jpeg' || $film['image'] === 'img/511eb6fb02565ba0374ddb3ad501d299.jpeg') {
                 $film['image'] = config('imgUrl.imgUrl') . '/' . $film['image'];
                 $films[] = $film;
             } else {
@@ -45,8 +45,8 @@ class FilmController extends Controller
         $destinationPath = 'images/';
         $name = md5($image64 . strtotime("now")) . '.' . $extension;
 
-        Storage::disk('public')->put($destinationPath.$name, base64_decode($image));
-        $imageUrl = 'images/'.$name;
+        Storage::disk('public')->put($destinationPath . $name, base64_decode($image));
+        $imageUrl = 'images/' . $name;
         $data = $request->validated();
         $data['image'] = $imageUrl;
 
@@ -81,7 +81,7 @@ class FilmController extends Controller
 
         if ($film->delete()) {
             foreach ($imgs as $img) {
-                if(!str_contains($img, 'img')) {
+                if (!str_contains($img, 'img')) {
                     Storage::disk('public')->delete($img);
                 }
             }

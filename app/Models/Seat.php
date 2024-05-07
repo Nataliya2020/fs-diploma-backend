@@ -13,7 +13,10 @@ class Seat extends Model
     protected $table = 'seats';
 
     protected $fillable = [
-        'hall_id', 'seat_number', 'is_standard_chairs', 'is_vip_chairs'
+        'hall_id',
+        'seat_number',
+        'is_standard_chairs',
+        'is_vip_chairs'
     ];
 
     public function hall(): BelongsTo

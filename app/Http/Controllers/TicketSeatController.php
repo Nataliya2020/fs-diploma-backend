@@ -38,7 +38,11 @@ class TicketSeatController extends Controller
 
         if ($countValid === count($dataSeat)) {
             foreach ($dataSeat as $seat) {
-                $dataSave = ['ticket_id' => $data['ticket_id'], 'row' => $seat['row'], 'seats_numbers' => $seat['col']];
+                $dataSave = [
+                    'ticket_id' => $data['ticket_id'],
+                    'row' => $seat['row'],
+                    'seats_numbers' => $seat['col']
+                ];
                 TicketSeat::create($dataSave);
             }
         }

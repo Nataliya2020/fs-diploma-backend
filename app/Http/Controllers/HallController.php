@@ -12,7 +12,7 @@ class HallController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): bool|string
+    public function index(): bool|string|array
     {
         $halls = Hall::all();
         $arrayHall = [];
@@ -41,8 +41,7 @@ class HallController extends Controller
 
             $sessionsForHalls[] = $arrayHall;
         }
-        return response()->json($sessionsForHalls);
-        //return json_encode($sessionsForHalls, JSON_UNESCAPED_UNICODE);
+        return $sessionsForHalls;
     }
 
     /**

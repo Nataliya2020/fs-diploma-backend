@@ -14,7 +14,7 @@ class SeatController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): string
+    public function index(): string|array
     {
         $seats = Seat::all();
         $halls = [];
@@ -35,8 +35,7 @@ class SeatController extends Controller
         $quantityHallsAndSeatsNotBlocked['quantityHalls'] = count($halls);
         $quantityHallsAndSeatsNotBlocked['quantitySeats'] = $totalQuantitySeatsNotBlocked;
 
-        return response()->json($quantityHallsAndSeatsNotBlocked);
-       // return json_encode($quantityHallsAndSeatsNotBlocked, JSON_UNESCAPED_UNICODE);
+        return $quantityHallsAndSeatsNotBlocked;
     }
 
     /**
